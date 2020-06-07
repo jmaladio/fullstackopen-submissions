@@ -1,0 +1,24 @@
+title Exercise 0.6: new note spa
+
+note over Browser:
+User enters text on
+the input field and
+clicks the form button.
+end note
+
+note over Browser:
+The JS code fetched earlier
+grabs the data, prevents the
+traditional POST method which 
+would generate a new GET circuit,
+and renders the new note.
+end note
+
+note over Browser:
+The JS parses the new note object
+into a JSON document and instructs
+the browser to send it to the server.
+end note
+
+Browser->Server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+Server-->Browser: 201 Created - Response: {"message":"note created"}

@@ -1,0 +1,46 @@
+title Exercise 0.5: spa
+
+note over Browser:
+User enters the given
+URL on the browser to
+access the web page
+end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+Server-->Browser: 200 OK - Response: HTML-code
+
+note over Browser:
+Browser starts reading
+the HTML document, finds
+the <link> tag and request
+the main.css file
+end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server-->Browser: 200 OK - Response: main.css
+
+note over Browser:
+Same as before, browser
+finds the <script> tag and
+request the spa.js file
+end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Server-->Browser: 200 OK - Response: spa.js
+
+note over Browser:
+Browser runs the code from
+/spa.js in which content of
+/data.json is requested.
+end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Server-->Browser: 200 OK - Response: [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over Browser:
+Browser fetches the JSON file,
+JS parses the data into objects,
+then appends each object content
+property into HTML elements and
+the browser renders the DOM tree.
+end note

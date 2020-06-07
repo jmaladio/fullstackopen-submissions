@@ -1,0 +1,46 @@
+title Exercise 0.4: new note
+
+note over Browser:
+User enters text on
+the input field and
+clicks the form button;
+button's method is POST,
+button's action is /new_note.
+end note
+
+Browser->Server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+
+note right of Server:
+Data arrives as the body of POST,
+is stored in a new note object 
+and added to the notes array.
+The content of the objects is converted
+into a string and added to /data.json
+end note
+
+Server --> Browser: Redirects to /notes
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+Server-->Browser: 200 OK - Response: HTML-code
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+Server-->Browser: 200 OK - Response: main.css
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+Server-->Browser: 200 OK - Response: main.js
+
+note over Browser:
+Browser runs the code from
+/main.js in which content of
+/data.json is requested.
+end note
+
+Browser->Server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+Server-->Browser: 200 OK - Response [{ content: "HTML is easy", date: "2019-05-23" }, ...]
+
+note over Browser:
+Browser fetches the JSON file,
+JS parses the data into objects,
+then appends each object content
+property into HTML elements and
+the browser renders the DOM tree.
+end note
+
+
